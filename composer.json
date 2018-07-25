@@ -2,9 +2,20 @@
     "description": "RecipeSystem",
     "name": "RecipeSystem",
     "type": "project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Tayyab Aziz",
+            "email": "tayyabaziz5@gmail.com",
+            "homepage": "http://www.tayyabaziz.com",
+            "role": "Founder and Developer"
+        }
+    ],
     "require": {
-        "php": ">=7.0.29",
-        "phpmailer/phpmailer": "^6.0"
+        "php": "^7.2",
+        "phpmailer/phpmailer": "^6.0",
+        "league/oauth2-client": "^2.3",
+        "twig/twig": "^2.5"
     },
     "autoload": {
         "psr-4": {

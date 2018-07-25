@@ -1,0 +1,29 @@
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{{ pagetitle }} - {{ title }}</title>
+        
+        {% for meta in metas %}
+            <meta name="{{ meta.name }}" content="{{ meta.content }}">
+        {% endfor %}
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="css/mdb.min.css" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" type="text/css" href="css/all.css"/>
+        <link rel="stylesheet" type="text/css" href="css/v4-shims.css"/>
+        <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Font Styles -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Product%20Sans:400italic,600italic,400,600,300">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine:400italic,600italic,400,600,300">
+    {% endblock %}
+</head>
