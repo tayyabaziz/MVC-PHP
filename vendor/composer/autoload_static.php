@@ -11,6 +11,10 @@ class ComposerStaticInitee3f32c02625a6324ec9f5db60024c4a
         array (
             'RecipeSystem\\' => 13,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -18,11 +22,22 @@ class ComposerStaticInitee3f32c02625a6324ec9f5db60024c4a
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
     );
 
     public static $classMap = array (
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'RecipeSystem\\Controller' => __DIR__ . '/../..' . '/src/controller/Controller.php',
         'RecipeSystem\\HomeController' => __DIR__ . '/../..' . '/src/controller/HomeController.php',
+        'RecipeSystem\\Model\\HomeModel' => __DIR__ . '/../..' . '/src/model/HomeModel.php',
+        'RecipeSystem\\Model\\Model' => __DIR__ . '/../..' . '/src/model/Model.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

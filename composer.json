@@ -1,7 +1,14 @@
 {
-  "autoload": {
-    "psr-4": {
-      "RecipeSystem\\":"src/"
+    "description": "RecipeSystem",
+    "name": "RecipeSystem",
+    "type": "project",
+    "require": {
+        "php": ">=7.0.29",
+        "phpmailer/phpmailer": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RecipeSystem\\":"src/"
+        }
     }
-  }
 }

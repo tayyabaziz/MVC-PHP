@@ -6,6 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'PHPMailer\\PHPMailer\\Exception' => $vendorDir . '/phpmailer/phpmailer/src/Exception.php',
+    'PHPMailer\\PHPMailer\\OAuth' => $vendorDir . '/phpmailer/phpmailer/src/OAuth.php',
+    'PHPMailer\\PHPMailer\\PHPMailer' => $vendorDir . '/phpmailer/phpmailer/src/PHPMailer.php',
+    'PHPMailer\\PHPMailer\\POP3' => $vendorDir . '/phpmailer/phpmailer/src/POP3.php',
+    'PHPMailer\\PHPMailer\\SMTP' => $vendorDir . '/phpmailer/phpmailer/src/SMTP.php',
     'RecipeSystem\\Controller' => $baseDir . '/src/controller/Controller.php',
     'RecipeSystem\\HomeController' => $baseDir . '/src/controller/HomeController.php',
+    'RecipeSystem\\Model\\HomeModel' => $baseDir . '/src/model/HomeModel.php',
+    'RecipeSystem\\Model\\Model' => $baseDir . '/src/model/Model.php',
 );
