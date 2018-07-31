@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="my-5 my-sm-4 my-md-4 my-lg-3 error-box d-flex justify-content-center align-items-center">
+            <div class="jumbotron error-body text-center">
+                <h1 class="error-title text-danger">404</h1>
+                <h3 class="text-uppercase error-subtitle">PAGE NOT FOUND !</h3>
+                <p class="text-muted">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
+                <a href="{{ applicationurl }}" class="btn btn-danger btn-rounded">Back to home</a> 
+            </div>
+        </div>
+    </div>
+{% endblock %}

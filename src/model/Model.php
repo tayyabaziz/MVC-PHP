@@ -3,8 +3,6 @@ namespace RecipeSystem\Model;
 
 use mysqli;
 
-include __DIR__.'/../../config.php';
-
 class Model
 {
     private $_connection;
@@ -20,12 +18,25 @@ class Model
         }
     }
 
-    public function insert($table, $fields, $values) {
-
+    public function getConnection()
+    {
+    	return $this->_connection;
     }
 
-    public function query($query) 
+    public function insert($table, $fields, $values)
     {
+    	$query = "INSERT INTO $table (".explode(', ', $fields).") VALUES ('".explode("', '", $values)."')";
+    	$this->query($query);
+    	return $this->insert_id();
+    }
+
+    public function query($query, $data = "") 
+    {
+    	if($data != "") {
+    		foreach ($data as $key => $value) {
+	    		$query = str_replace($key, $value, $query);
+	    	}
+    	}
         return $this->_connection->query($query) or die("Failed to connect to MySQL: " . mysqli_error($this->_connection));
     }
 

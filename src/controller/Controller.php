@@ -1,15 +1,36 @@
 <?php
-namespace RecipeSystem;
+namespace RecipeSystem\Controller;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 class Controller
 {
-    
+    private $applicationarr;
     function __construct() 
     {
-        # code...
+        $this->applicationarr = [
+        	'applicationurl' => '',
+            'pagename' => 'main', 
+            'pagetitle' => 'Home', 
+            'title' => 'MVC Recipe', 
+            'author' => 'Tayyab Aziz',
+            'metas' =>
+            [
+                ['name'=>'description', 'content'=>'MVC Recipe'],
+                ['name'=>'author', 'content'=>'Tayyab Aziz'],
+            ],
+        ];
+    }
+
+    public function getApplicationSetting()
+    {
+    	return $this->applicationarr;
+    }
+
+    public function setApplicationSetting($applicationarr)
+    {
+    	$this->applicationarr = $applicationarr;
     }
 
     public function GetSystemIPAddress() 
@@ -32,6 +53,13 @@ class Controller
             $ipaddress = 'UNKNOWN';
 
         return $ipaddress;
+    }
+
+    public function twigrender($view, $data) 
+    {
+    	$loader = new \Twig_Loader_Filesystem(__DIR__.'/../view/');
+        $twig = new \Twig_Environment($loader);
+        echo $twig->render($view, $data);
     }
 
     public function view($value, $data = "") 

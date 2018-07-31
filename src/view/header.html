@@ -1,18 +1,68 @@
-<!-- Navigation -->
-<nav class="navbar navbar-expand-md card navbar-light sticky-top border shadow">
-  <div class="container">
-    <a class="navbar-brand" href="">{{ title }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item {% if pagename  == 'main' %} active {% endif %}">
-          <a class="nav-link" href="./">
-            Home
-          </a>
-        </li>
-      </ul>
+{% block header %}
+{% if pagename  == 'error' %}
+{% set errorpage = 'true' %}
+{% endif %} 
+<header>
+  <div id="top-section"></div>
+  {% if pagename  != 'error' %}
+  <div style="margin: 0px;position: relative;top: 0px;z-index: 1040;width: 100%;" class="row bg-dark text-white shadow wow fadeInDown ">
+    <div class="container">
+      <div class="float-right">
+        <a class="btn p-2 m-0" href="javascript:;" target="">
+          <i class="m-auto fa fa-facebook"></i>
+        </a>
+
+        <a class="btn p-2 m-0" href="javascript:;" target="">
+          <i class="m-auto fa fa-twitter"></i>
+        </a>
+
+        <a class="btn p-2 m-0" href="javascript:;" target="">
+          <i class="m-auto fa fa-youtube"></i>
+        </a>
+
+        <a class="btn p-2 m-0" href="javascript:;" target="">
+          <i class="m-auto fa fa-google-plus"></i>
+        </a>
+
+        <a class="btn p-2 m-0" href="javascript:;" target="">
+          <i class="m-auto fa fa-pinterest"></i>
+        </a>
+      </div>
     </div>
-  </div> <!--end container -->
-</nav>
+  </div>
+
+  <!-- Navigation -->
+  <nav style="top: 36px;" class="navbar fixed-top navbar-expand-md navbar-light white scrolling-navbar card shadow wow fadeInDown">
+    <div class="container">
+      <a class="navbar-brand" href="{{ applicationurl }}">{{ title }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="btn btn-block btn-md {% if pagename  == 'main' %} blue-gradient {% else %} text-dark {% endif %}" href="{{ applicationurl }}">
+              Home
+              {% if pagename  == 'main' %} <span class="sr-only">(current)</span> {% endif %}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-block btn-md text-dark" href="{{ applicationurl }}">
+              Test
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-block btn-md text-dark" href="{{ applicationurl }}">
+              Test
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> <!--end container -->
+  </nav>
+  
+  {{ include('slider.html') }}
+  {% endif %}
+</header> 
+
+{% endblock %}

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
-    {{ include('head.html') }}
+	<head>
+		{% block head %}
+	    	{{ include('head.html') }}
+	    {% endblock %}
+	</head>
     <body>
-    	{{ include('header.html') }}
+    	{% block header %}
+    		{{ include('header.html') }}
+    	{% endblock %}
         {% block content %}{% endblock %}
-
         {% block footer %}
             {{ include('foot.html') }}
         {% endblock %}

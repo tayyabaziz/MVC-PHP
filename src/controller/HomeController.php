@@ -1,28 +1,13 @@
 <?php
-namespace RecipeSystem;
+namespace RecipeSystem\Controller;
+
+use RecipeSystem\Model\HomeModel;
 
 class HomeController extends Controller
 {
-    function __construct() 
+    function __construct(array $setting = array()) 
     {   
-        new \RecipeSystem\Model\HomeModel();
-        //$this->view("home");
-
-
-        $loader = new \Twig_Loader_Filesystem(__DIR__.'/../view/');
-        $twig = new \Twig_Environment($loader);
-        echo $twig->render(
-            'home.html', 
-            array(
-                'pagename' => 'main', 
-                'pagetitle' => 'Home', 
-                'title' => 'Recipe Website', 
-                'metas' =>
-                [
-                    ['name'=>'description', 'content'=>'Recipe Website'],
-                    ['name'=>'author', 'content'=>'Tayyab Aziz'],
-                ],
-            )
-        );
+        new HomeModel();
+        $this->twigrender('home.html', $setting);
     }
 }

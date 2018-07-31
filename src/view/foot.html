@@ -1,17 +1,62 @@
-<!-- Footer -->
-<footer class="py-3 bg-dark fixed-bottom shadow">
-  <div class="container">
-    <p class="m-0 text-center text-white">{{ title }} - Copyright &copy; 2018</p>
+{% block footer %}
+<div class="fixed-action-btn smooth-scroll wow zoomInUp" style="bottom: 24px; right: 24px;">
+    <a href="#top-section" class="btn-floating btn-large red">
+        <i class="iconup p-2 fa fa-arrow-up"></i>
+    </a>
+</div>
+<footer class="page-footer text-center font-small wow fadeInUp">
+  <div class="py-4">
+    <a href="javascript:;" target="">
+      <i class="fa fa-2x fa-facebook mx-2"></i>
+    </a>
+
+    <a href="javascript:;" target="">
+      <i class="fa fa-2x fa-twitter mx-2"></i>
+    </a>
+
+    <a href="javascript:;" target="">
+      <i class="fa fa-2x fa-youtube mx-2"></i>
+    </a>
+
+    <a href="javascript:;" target="">
+      <i class="fa fa-2x fa-google-plus mx-2"></i>
+    </a>
+
+    <a href="javascript:;" target="">
+      <i class="fa fa-2x fa-pinterest mx-2"></i>
+    </a>
   </div>
-  <!-- /.container -->
+
+  <!--Copyright-->
+  <div class="footer-copyright py-3 ">
+    <p class="m-0 text-center text-white">{{ title }} - Copyright &copy; 2018, Designed and Developed by <a href="{{ authorlink }}" target="_blank">{{ author }}</a></p>
+  </div>
+  <!--/.Copyright-->
 </footer>
 
+{% block javascripts %}
 <!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="{{ applicationurl }}js/jquery-3.3.1.min.js"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="{{ applicationurl }}js/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ applicationurl }}js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
-<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{ applicationurl }}js/mdb.min.js"></script>
+<!-- Font Awesome JavaScript -->
+<script type="text/javascript" src="{{ applicationurl }}js/all.js"></script>
+<script type="text/javascript" src="{{ applicationurl }}js/v4-shims.js"></script>
+{% endblock %}
+<script type="text/javascript">
+  new WOW().init();
+
+  //SMOOTH SCROLL
+  $(".smooth-scroll").on('click', 'a', function (event) {
+      event.preventDefault();
+      var elAttr = $(this).attr('href');
+      $('body,html').animate({
+          scrollTop: $(elAttr).offset().top
+      }, 700);
+  });/* DROPDOWN */
+</script>
+{% endblock %}
