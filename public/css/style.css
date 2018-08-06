@@ -10,7 +10,7 @@ header {
 }
 
 .haveslider {
-  height: 60vh;
+  height: 70vh;
 }
 
 .haveslider #carousel-slider  {
@@ -19,12 +19,8 @@ header {
 
 */
 
-.navbar.scrolling-navbar.top-nav-collapse {
-  top: 0px !important;
-}
-
 #carousel-slider  {
-  height: 60vh;
+  height: 70vh;
 }
 .error-box .error-title {
   font-size: 25vw !important;
@@ -35,7 +31,28 @@ header {
 .page-footer{
   background-color:#1C2331
 }
+
+.topbar {
+    margin: 0px;
+    position: relative;
+    top: 0px;
+    z-index: 1040;
+    width: 100%;
+}
+
+.mt-e {
+    margin-top: 5em !important;
+}
+
+.navbar.scrolling-navbar.top-nav-collapse {
+  top: 0px !important;
+}
+
 .navbar.scrolling-navbar:not(.top-nav-collapse) {
+  top: 36px;
+}
+
+.navbar.scrolling-navbar:not(.top-nav-collapse .white) {
   background: transparent !important;
 }
 
@@ -43,13 +60,13 @@ header {
   background: white !important;
 }
 
-.navbar.scrolling-navbar:not(.top-nav-collapse) .navbar-brand, 
-.navbar.scrolling-navbar:not(.top-nav-collapse) .btn {
+.navbar.scrolling-navbar:not(.white):not(.top-nav-collapse) .navbar-brand, 
+.navbar.scrolling-navbar:not(.white):not(.top-nav-collapse) .btn {
   color: white !important;
 }
 
-.navbar.scrolling-navbar.top-nav-collapse .navbar-brand, 
-.navbar.scrolling-navbar.top-nav-collapse .btn:not(.*-gradient) {
+.navbar.scrolling-navbar.top-nav-collapse  .navbar-brand, 
+.navbar.scrolling-navbar.top-nav-collapse  .btn:not(.*-gradient) {
   color: black !important;
 }
 /*

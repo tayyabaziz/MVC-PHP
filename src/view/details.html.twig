@@ -1,0 +1,73 @@
+{% extends "base.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block header %}
+    {{ parent() }}
+    {{ include('header2.html.twig') }}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid mt-e">
+        <hr class="my-3">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card mb-4 px-1">
+                    <div class="card-body z-depth-2">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="overlay">
+                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                                    <div class="mask rgba-white-slight"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <h6 class="pink-text pb-2 pt-1">
+                                    <i class="fa fa-cutlery"></i>
+                                    Culinary</h6>
+                                <h5 class="card-title">
+                                    <a>Card title</a>
+                                </h5>
+                                <p class="card-text">Text Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-3">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <section class="text-center">
+                    <h4 class="h4 font-weight-bold text-center mb-4">Related Recipes</h4>
+                    <div class="row no-gutters justify-content-center">
+                        {% for item in 1..4 %}
+                            <div class="col-12 col-sm-6 col-md-3 mb-4 px-1 text-left">
+                                <div class="card card-cascade">
+                                    <div class="view view-cascade overlay">
+                                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                                        <a href="recipe/details">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body card-body-cascade  z-depth-2">
+                                        <h6 class="pink-text pb-2 pt-1">
+                                            <i class="fa fa-cutlery"></i>
+                                            Culinary</h6>
+                                        <h5 class="card-title">
+                                            <a href="recipe/details">Card title</a>
+                                        </h5>
+                                        <p class="card-text">Text Description</p>
+                                        <a href="recipe/details" class="btn btn-block btn-unique px-0">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}

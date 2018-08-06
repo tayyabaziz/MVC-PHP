@@ -1,13 +1,14 @@
 <?php
+
 namespace RecipeSystem\Controller;
 
 use RecipeSystem\Model\HomeModel;
 
 class HomeController extends Controller
 {
-    function __construct(array $setting = array()) 
-    {   
+    public function __construct(array $mydata = array())
+    {
         new HomeModel();
-        $this->twigrender('home.html', $setting);
+        $this->twigrender('home.html.twig', $mydata);
     }
 }

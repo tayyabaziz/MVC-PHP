@@ -15,8 +15,7 @@
         "php": "^7.2",
         "phpmailer/phpmailer": "^6.0",
         "league/oauth2-client": "^2.3",
-        "twig/twig": "^2.5",
-        "zendframework/zend-diactoros": "^1.8"
+        "twig/twig": "^2.5"
     },
     "autoload": {
         "psr-4": {

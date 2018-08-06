@@ -1,0 +1,58 @@
+{% block header %}
+
+    <div id="top-section"></div>
+    <div class="topbar blue-gradient z-depth-1 row text-white shadow wow fadeInDown ">
+        <div class="container">
+            <div class="float-right">
+                <a class="btn btn-indigo p-2 m-auto" href="javascript:;" target="">
+                    <i class="m-auto fa fa-facebook"></i>
+                </a>
+                <a class="btn btn-indigo p-2 m-auto" href="javascript:;" target="">
+                    <i class="m-auto fa fa-twitter"></i>
+                </a>
+
+                <a class="btn btn-indigo p-2 m-auto" href="javascript:;" target="">
+                    <i class="m-auto fa fa-youtube"></i>
+                </a>
+
+                <a class="btn btn-indigo p-2 m-auto" href="javascript:;" target="">
+                    <i class="m-auto fa fa-google-plus"></i>
+                </a>
+                <a class="btn btn-indigo p-2 m-auto" href="javascript:;" target="">
+                    <i class="m-auto fa fa-pinterest"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-md navbar-light scrolling-navbar shadow wow fadeInDown">
+        <div class="container">
+            <a class="navbar-brand" href="{{ applicationurl }}">{{ title }}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="mx-1 nav-item">
+                        <a class="btn btn-block btn-md {% if pagename  == 'main' %} blue-gradient {% else %}  btn-outline-primary  {% endif %}" href="{{ applicationurl }}">
+                            Home
+                            {% if pagename == 'main' %}
+                                <span class="sr-only">(current)</span>
+                            {% endif %}
+                        </a>
+                    </li>
+                    <li class="mx-1 nav-item">
+                        <a class="btn btn-block btn-md {% if pagename  == 'recipe' %} blue-gradient {% else %}  btn-outline-primary  {% endif %}" href="{{ applicationurl }}recipe">
+                            All Recipes
+                            {% if pagename == 'recipe' %}
+                                <span class="sr-only">(current)</span>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--end container -->
+    </nav>
+{% endblock %}

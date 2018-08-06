@@ -1,0 +1,147 @@
+{% extends "base.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block header %}
+    {{ parent() }}
+    {{ include('header.html.twig') }}
+    {{ include('slider.html.twig') }}
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <hr class="my-3">
+        <div class="row justify-content-center">
+            <div class="col-md-9 order-2 order-md-1">
+                <section class="text-center">
+                    <h4 class="h4 font-weight-bold text-center mb-4">Latest Recipes</h4>
+                    <div class="row no-gutters justify-content-center">
+                        {% for item in 1..4 %}
+                            <div class="col-12 col-sm-6 col-md-3 mb-4 px-1 text-left">
+                                <div class="card card-cascade ">
+                                    <div class="view view-cascade overlay">
+                                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                                        <a href="recipe/details">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body card-body-cascade  z-depth-2">
+                                        <h6 class="pink-text pb-2 pt-1">
+                                            <i class="fa fa-cutlery"></i>
+                                            Culinary</h6>
+                                        <h5 class="card-title">
+                                            <a href="recipe/details">Card title</a>
+                                        </h5>
+                                        <p class="card-text">Text Description</p>
+                                        <a href="recipe/details" class="btn btn-block btn-unique px-0">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3 order-1 order-md-2">
+                <section class="text-center">
+                    <h4 class="h4 font-weight-bold text-center mb-4">Top Categories</h4>
+                    <div class="row justify-content-center">
+                        {% for item in 1..5 %}
+                            <div class="col col-md-12 mb-1">
+                                <a href="recipe" class="btn btn-outline-primary waves-effect btn-block border">
+                                    Card title
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+        <hr class="my-3">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <section class="text-center">
+                    <h4 class="h4 font-weight-bold text-center mb-4">Hall of Fame Recipes</h4>
+                    <div class="row no-gutters justify-content-center">
+                        {% for item in 1..4 %}
+                            <div class="col-12 col-sm-6 col-md-3 mb-4 px-1 text-left">
+                                <div class="card card-cascade">
+                                    <div class="view view-cascade overlay">
+                                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                                        <a href="recipe/details">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body card-body-cascade  z-depth-2">
+                                        <h6 class="pink-text pb-2 pt-1">
+                                            <i class="fa fa-cutlery"></i>
+                                            Culinary</h6>
+                                        <h5 class="card-title">
+                                            <a href="recipe/details">Card title</a>
+                                        </h5>
+                                        <p class="card-text">Text Description</p>
+                                        <a href="recipe/details" class="btn btn-block btn-unique px-0">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                <hr class="my-3">
+                <section class="text-center">
+                    <h4 class="h4 font-weight-bold text-center mb-4">Hall of Fame Users</h4>
+                    <div class="row no-gutters justify-content-center">
+                        {% for item in 1..3 %}
+                            <div class="col mb-r text-center">
+                                <div class="card card-cascade wider">
+                                    <div class="view overlay hm-white-slight px-2">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg" class=" img-fluid rounded ">
+                                        <a href="javascript:;">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="javascript:;">
+                                            <h4 class="card-title">
+                                                <strong>Alice Mayer</strong>
+                                            </h4>
+                                            <h5 class="indigo-text">
+                                                <strong>Photographer</strong>
+                                            </h5>
+                                        </a>
+                                        <a href="javascript:;" class="icons-sm fb-ic">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                        <a href="javascript:;" class="icons-sm tw-ic">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a href="javascript:;" class="icons-sm ins-ic">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3">
+                <section class="text-center">
+                    <h4 class="h4 font-weight-bold text-center mb-4">Advertisement</h4>
+                    <div class="row no-gutters justify-content-center">
+                        <div class="col-12 col-sm-4 col-md-12 mb-4 px-1 text-left">
+                            <div class="card card-cascade ">
+                                <div class="view view-cascade overlay">
+                                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
+                                    <a href="javascript:;">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}

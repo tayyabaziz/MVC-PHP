@@ -1,0 +1,30 @@
+{% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ pagetitle }}
+        -
+        {{ title }}</title>
+    {% for meta in metas %}
+        <meta name="{{ meta.name }}" content="{{ meta.content }}">
+    {% endfor %}
+
+    {% block stylesheets %}
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <!-- Material Design Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="https://res.cloudinary.com/tayyab-aziz/raw/upload/v1533368783/css/mdb.min.css">
+        <!-- Your custom styles (optional) -->
+        <link rel="stylesheet" type="text/css" href="{{ applicationurl }}css/style.css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css">
+
+        <!-- Font Styles -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Product%20Sans:400italic,600italic,400,600,300">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine:400italic,600italic,400,600,300">
+
+    {% endblock %}
+{% endblock %}

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include "head.php";?>
+<?php include 'head.php'; ?>
 <body>
     <div class="container mb-8">
       <div class="row">
@@ -11,6 +11,6 @@
         </div>
       </div>
     </div>
-    <?php include "foot.php";?>
+    <?php include 'foot.php'; ?>
   </body>
 </html>

@@ -2,7 +2,7 @@
 
 namespace RecipeSystem\Model;
 
-class HomeModel extends Model
+class CategoryModel extends Model
 {
     public function __construct()
     {

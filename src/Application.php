@@ -1,43 +1,70 @@
-<?
-namespace RecipeSystem;
+<?php
 
-use RecipeSystem\Controller;
-use RecipeSystem\MyRoutes;
+namespace RecipeSystem;
 
 class Application
 {
-	public static function intialize() {
+    public static function intialize()
+    {
+        $route = 'home';
+        if (isset($_GET['route'])) {
+            $route = $_GET['route'];
+        }
+        $route = rtrim($route, '/');
 
-		$route = "home";
-		if(isset($_GET['route'])) {
-			$route = $_GET['route'];
-		}
-		$route = rtrim($route, '/');
+        $mydata = (new Controller\Controller())->getApplicationSetting();
 
-		$setting = (new Controller\Controller())->getApplicationSetting();
+        $request_uri = $_SERVER['PHP_SELF'];
+        $request_uri = str_replace('index.php', '', $request_uri);
+        $request_uri = rtrim($request_uri, '/');
+        $request_uri .= '/';
 
-		$request_uri = $_SERVER['PHP_SELF'];
-		$request_uri = str_replace("index.php", "", $request_uri);
-		$request_uri = rtrim($request_uri, '/');
-		$request_uri .= "/";
+        $mydata['applicationurl'] = 'http://'.$_SERVER['HTTP_HOST'].$request_uri;
 
-		$setting['applicationurl'] = "http://".$_SERVER['HTTP_HOST'].$request_uri;
+        if (array_key_exists($route, MyRoutes::$routesarr)) {
+            $routesvalue = (MyRoutes::$routesarr)[$route];
 
-		if(array_key_exists($route, MyRoutes::$routesarr)) {
-			$routesvalue = (MyRoutes::$routesarr)[$route];
+            foreach ($routesvalue['routesetting'] as $key => $value) {
+                $mydata[$key] = $value;
+            }
+            $newcontroller = $routesvalue['newcontroller'];
+            $controller = new $newcontroller($mydata);
+            exit();
+        } else {
+            $myroutes = MyRoutes::$routesarr;
+            $currroute = explode('/', $route);
+            $notfound = true;
+            foreach ($myroutes as $key => $value) {
+                $myrouteskeys = explode('/', $key);
+                if (count($myrouteskeys) == count($currroute)) {
+                    $routestr = array();
+                    foreach ($myrouteskeys as $key2 => $value2) {
+                        if ($value2 == $currroute[$key2]) {
+                            $routestr[] = $value2;
+                        } elseif (false !== strpos($value2, '{')) {
+                            $routestr[] = $value2;
+                        }
+                    }
+                    $routestrc = implode('/', $routestr);
 
-			foreach ($routesvalue['routesetting'] as $key => $value) {
-				$setting[$key] = $value;
-			}
-			$newcontroller = $routesvalue['newcontroller'];
-			$controller = new $newcontroller($setting);
-			exit();
-		}
-		else {
-			$setting['pagename'] = 'error';
-			$setting['pagetitle'] = 'Error 404';
-			new Controller\ErrorController($setting);
-			exit();
-		}
-	}
+                    if ($key == $routestrc) {
+                        foreach ($routestr as $key2 => $value2) {
+                            $mydata[$value2] = $currroute[$key2];
+                        }
+                        $routesvalue = $value;
+                        foreach ($routesvalue['routesetting'] as $key3 => $value3) {
+                            $mydata[$key3] = $value3;
+                        }
+                        $newcontroller = $routesvalue['newcontroller'];
+                        $controller = new $newcontroller($mydata);
+                        exit();
+                    }
+                }
+            }
+
+            $mydata['routeerror'] = $route;
+            new Controller\ErrorController($mydata);
+            exit();
+        }
+    }
 }
