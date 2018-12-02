@@ -36,8 +36,24 @@
         </div>
         <!--/.Copyright-->
     </footer>
-
     {% block javascripts %}
+        <script>
+            var loadDeferredStyles = function() {
+                var addStylesNode = document.getElementById("deferred-styles");
+                var replacement = document.createElement("div");
+                replacement.innerHTML = addStylesNode.textContent;
+                document.body.appendChild(replacement)
+                addStylesNode.parentElement.removeChild(addStylesNode);
+            };
+            var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+            if (raf) 
+                raf(function() {
+                    window.setTimeout(loadDeferredStyles, 0);
+                });
+            else 
+                window.addEventListener('load', loadDeferredStyles);
+        </script>
+
         <!-- JQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->
@@ -50,17 +66,18 @@
         <script defer="defer" src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
         <script defer="defer" src="https://use.fontawesome.com/releases/v5.2.0/js/v4-shims.js"></script>
         <!-- <script type="text/javascript" src="{{ applicationurl }}js/all.js"></script> <script type="text/javascript" src="{{ applicationurl }}js/v4-shims.js"></script> -->
-    {% endblock %}
-    <script type="text/javascript">
-        new WOW().init();
 
-        //SMOOTH SCROLL
-        $(".smooth-scroll").on('click', 'a', function(event) {
-            event.preventDefault();
-            var elAttr = $(this).attr('href');
-            $('body,html').animate({
-                scrollTop: $(elAttr).offset().top
-            }, 700);
-        });/* DROPDOWN */
-    </script>
+        <script type="text/javascript">
+            new WOW().init();
+
+            //SMOOTH SCROLL
+            $(".smooth-scroll").on('click', 'a', function(event) {
+                event.preventDefault();
+                var elAttr = $(this).attr('href');
+                $('body,html').animate({
+                    scrollTop: $(elAttr).offset().top
+                }, 700);
+            });/* DROPDOWN */
+        </script>
+    {% endblock %}
 {% endblock %}

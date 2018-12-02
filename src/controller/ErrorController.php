@@ -65,6 +65,7 @@ class ErrorController extends Controller
         $mydata['errorcode'] = $errorcode;
         $errorname = $this->getErrorName($errorcode);
         header("HTTP/1.1 $errorcode $errorname");
+        $mydata = (new parent())->setSetting($mydata);
         $this->twigrender('error.html.twig', $mydata);
         exit();
     }

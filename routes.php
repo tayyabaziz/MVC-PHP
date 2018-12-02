@@ -21,20 +21,20 @@ MyRoutes::addRoutes(
 );
 
 MyRoutes::addRoutes(
-    '{category}',
-    'CategoryController',
-    [
-        'pagename' => '{category}',
-        'pagetitle' => '{category}',
-    ]
-);
-
-MyRoutes::addRoutes(
     'recipe/{recipename}',
     'DetailsController',
     [
         'pagename' => '{recipename}',
         'pagetitle' => '{recipename}',
+    ]
+);
+/*
+MyRoutes::addRoutes(
+    '{category}',
+    'CategoryController',
+    [
+        'pagename' => '{category}',
+        'pagetitle' => '{category}',
     ]
 );
 
@@ -46,3 +46,4 @@ MyRoutes::addRoutes(
         'pagetitle' => '{recipename}',
     ]
 );
+*/

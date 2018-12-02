@@ -19,7 +19,7 @@
                     <div class="row justify-content-center">
                         {% for item in 1..10 %}
                             <div class="col col-md-12 mb-1">
-                                <a href="recipe" class="btn btn-outline-primary waves-effect btn-block border">
+                                <a href="{{ applicationurl }}recipe" class="btn btn-outline-primary waves-effect btn-block border">
                                     Card title
                                 </a>
                             </div>
@@ -35,8 +35,8 @@
                             <div class="col-12 col-sm-6 col-md-4 mb-4 px-1 text-left">
                                 <div class="card card-cascade ">
                                     <div class="view view-cascade overlay">
-                                        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" alt="Card image cap">
-                                        <a href="recipe/details">
+                                        <img class="card-img-top" src="{{ applicationurl }}img/img%20(147).jpg" alt="Card image cap" title="Card image cap">
+                                        <a href="{{ applicationurl }}recipe/details">
                                             <div class="mask rgba-white-slight"></div>
                                         </a>
                                     </div>
@@ -45,10 +45,10 @@
                                             <i class="fa fa-cutlery"></i>
                                             Culinary</h6>
                                         <h5 class="card-title">
-                                            <a href="recipe/details">Card title</a>
+                                            <a href="{{ applicationurl }}recipe/details">Card title</a>
                                         </h5>
                                         <p class="card-text">Text Description</p>
-                                        <a href="recipe/details" class="btn btn-block btn-unique px-0">Details</a>
+                                        <a href="{{ applicationurl }}recipe/details" class="btn btn-block btn-unique px-0">Details</a>
                                     </div>
                                 </div>
                             </div>

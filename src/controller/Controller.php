@@ -13,16 +13,44 @@ class Controller
     {
         $this->applicationarr = [
             'applicationurl' => '',
+            'canonical' => '',
             'pagename' => 'main',
-        'pagetitle' => 'Home',
-            'title' => 'MVC Recipe',
+            'pagetitle' => 'Home',
+            'title' => 'Home of Recipe',
             'author' => 'Tayyab Aziz',
-            'metas' => [
-                ['name' => 'description', 'content' => 'MVC Recipe'],
-                ['name' => 'author', 'content' => 'Tayyab Aziz'],
-            ],
         ];
     }
+
+    public function setSetting($mydata)
+    {
+        $mydata['metas'] = [
+            ['name' => 'title', 'content' => 'Home of Recipe'],
+            ['name' => 'description', 'content' => 'Recipe - Temporary Meta Description Tag for testing only, website is not ready yet'],
+            ['name' => 'author', 'content' =>  $mydata['author']],
+            ['name' => 'keywords', 'content' => 'Recipe, recipes'],
+            ['property' => 'og:locale', 'content' => 'en_US'],
+            ['property' => 'og:type', 'content' => 'article'],
+            ['property' => 'og:title', 'content' => $mydata['pagetitle'] . ' - Recipe'],
+            ['property' => 'og:description', 'content' => 'Recipe'],
+            ['property' => 'og:url', 'content' => $mydata['canonical']],
+            ['property' => 'og:site_name', 'content' => 'Recipe'],
+            ['property' => 'article:publisher', 'content' => "https://www.facebook.com/tayyab2318"],
+            ['property' => 'article:author', 'content' => "https://www.facebook.com/tayyab2318"],
+            ['property' => 'article:section', 'content' => $mydata['pagetitle'] . ' - Recipe'],
+            ['property' => 'article:published_time', 'content' => "2018-07-11T14:30:12+02:00"],
+            ['property' => 'article:modified_time', 'content' => "2018-07-11T15:19:50+02:00"],
+            ['property' => 'og:updated_time', 'content' => "2018-07-11T15:19:50+02:00"],
+
+            ['name' => 'twitter:card', 'content' => 'summary_large_image'],
+            ['name' => 'twitter:description', 'content' => 'Recipe'],
+            ['name' => 'twitter:title', 'content' => $mydata['pagetitle'] . ' - Recipe'],
+            ['name' => 'twitter:site', 'content' => 'Recipe'],
+            ['name' => 'twitter:creator', 'content' => '@tayyabaziz'],
+        ];
+
+        return $this->applicationarr = $mydata;
+    }
+
 
     public function getApplicationSetting()
     {
@@ -65,7 +93,11 @@ class Controller
             // ...
         ));
         $twig->addExtension(new \Twig_Extension_Debug());
-        echo $twig->render($view, $data);
+        $twig->addExtension(new \nochso\HtmlCompressTwig\Extension(true));
+
+        $content = $twig->render($view, $data);
+
+        echo $content;
     }
 
     public function view($value, $data = '')

@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% block head %}
-            {{ include('head.html.twig') }}
-        {% endblock %}
-    </head>
-    <body>
-        <header>
-            {% block header %}{% endblock %}
-        </header>
-        {% block content %}{% endblock %}
-        {% block footer %}
-            {{ include('foot.html.twig') }}
-        {% endblock %}
-    </body>
-</html>
+{% htmlcompress %}
+{% spaceless %}
+    <!DOCTYPE html>
+    <html>
+        <head>
+            {% block head %}
+                {{ include('head.html.twig') }}
+            {% endblock %}
+        </head>
+        <body>
+            <header>
+                {% block header %}{% endblock %}
+            </header>
+            {% block content %}{% endblock %}
+            {% block footer %}
+                {{ include('foot.html.twig') }}
+            {% endblock %}
+        </body>
+    </html>
+{% endspaceless %}
+{% endhtmlcompress %}

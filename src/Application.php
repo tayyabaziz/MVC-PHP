@@ -6,9 +6,11 @@ class Application
 {
     public static function intialize()
     {
+        $croute = '';
         $route = 'home';
         if (isset($_GET['route'])) {
             $route = $_GET['route'];
+            $croute = $_GET['route'];
         }
         $route = rtrim($route, '/');
 
@@ -20,6 +22,7 @@ class Application
         $request_uri .= '/';
 
         $mydata['applicationurl'] = 'http://'.$_SERVER['HTTP_HOST'].$request_uri;
+        $mydata['canonical'] = 'http://'.$_SERVER['HTTP_HOST'].$request_uri.$croute;
 
         if (array_key_exists($route, MyRoutes::$routesarr)) {
             $routesvalue = (MyRoutes::$routesarr)[$route];

@@ -23,12 +23,43 @@ class Model
         return $this->_connection;
     }
 
-    public function insert($table, $fields, $values)
+    public function insert($table, $fields, $values, $data)
     {
-        $query = "INSERT INTO $table (".explode(', ', $fields).") VALUES ('".explode("', '", $values)."')";
-        $this->query($query);
+        $query = "INSERT INTO $table (".implode(', ', $fields).") VALUES ('".implode("', '", $values)."')";
+        $this->query($query, $data);
 
         return $this->insert_id();
+    }
+
+    public function select($fields = "*", $table, $data, $where = "", $groupby = "", $orderby = "", $limit = "")
+    {
+        if ($where != "") {
+            $where .= "WHERE ".$where;
+        }
+        $query = "SELECT $fields $table $where $groupby $orderby $limit";
+        return $this->query($query, $data);
+    }
+
+    public function update($table, $fieldsvalues, $where, $data)
+    {
+        if ($where != "") {
+            $where .= "WHERE ".$where;
+        }
+        $fieldquery = "";
+        foreach ($fieldsvalues as $key => $value) {
+            $fieldquery = $key."=''".$value."'";
+        }
+        $query = "UPDATE $table SET $fieldquery $where";
+        return $this->query($query, $data);
+    }
+
+    public function delete($table, $where, $data)
+    {
+        if ($where != "") {
+            $where .= "WHERE ".$where;
+        }
+        $query = "DELETE FROM $table $where";
+        return $this->query($query, $data);
     }
 
     public function query($query, $data = '')
